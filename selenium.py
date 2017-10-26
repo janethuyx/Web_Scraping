@@ -12,7 +12,6 @@ from selenium.webdriver.chrome.options import Options
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--disable-infobars")
 driver = webdriver.Chrome(chrome_options=chrome_options)
-# driver = webdriver.Chrome()
 
 driver.get("https://www.producthunt.com/")
 
@@ -82,8 +81,7 @@ while times<=2500:
 						
 		 
 		 
-				#js="var q=document.documentElement.scrollTop=10000"
-				#driver.execute_script(js)
+
 			time.sleep(2)
 			
 		except Exception as e:
