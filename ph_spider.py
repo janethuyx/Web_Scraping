@@ -17,8 +17,8 @@ def reformat_url(url):
 
 
 
-class JanetSpider(Spider):
-	name='janet_spider'
+class Spider(Spider):
+	name='ph_spider'
 	allowed_urls=['https://www.producthunt.com/']
 	start_urls=urls
 
@@ -27,13 +27,6 @@ class JanetSpider(Spider):
 			new_url=reformat_url(url)
 			yield self.make_requests_from_url(new_url)
 
-
-#  links=response.xpath('//a[@class="link_523b9"]/@href').extract()
-#  totalreviews=response.xpath('//div[@class="item_54fdd"]')
-#  for index, link in enumerate(links):
-#   url='https://www.producthunt.com'+link
-#   totalreview=totalreviews[index].xpath('.//div[@class="buttonContainer_b6eb3"]/text()[2]').extract()[1]
-#    yield Request(url,callback=self.parse_detail, meta={'totalreview':totalreview})
 
 	def parse(self,response):
 		tags=response.xpath('//span[@class="topic_ca358 button_53e93 secondaryText_97b90"]/a/text()').extract()
